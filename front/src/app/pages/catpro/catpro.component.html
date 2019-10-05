@@ -1,0 +1,32 @@
+<div class="row">
+        <app-sidebar></app-sidebar>
+        <div class="col-sm-9 padding-right">
+            <div class="features_items"><!--features_items-->
+              <h2 class="title text-center">{{cname}} Products</h2>
+              <div class="col-sm-4" *ngFor="let p of proData">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img src="http://localhost:4567/images/{{p.image}}" alt="" />
+                        <h2>Rs:<span style="text-decoration:line-through">{{p.price}}</span></h2>
+                        <h5>Discount : {{p.discount}}%</h5>
+                        <h5>Rs.{{p.price-((p.price*p.discount)/100)}}</h5>
+                        <p>{{p.pname}}</p>
+                        <a routerLink="/productdetails/{{p._id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a>
+                      </div>
+                      <div class="product-overlay">
+                        <div class="overlay-content">
+                            <h2>Rs:<span style="text-decoration:line-through">{{p.price}}</span></h2>
+                           
+                            <h5>Rs.{{p.price-((p.price*p.discount)/100)}}</h5>
+                            <p>{{p.pname}}</p>
+                          <a routerLink="/productdetails/{{p._id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a>
+                        </div>
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>

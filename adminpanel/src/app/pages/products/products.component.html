@@ -1,0 +1,36 @@
+<h1>Products</h1>
+<table class="table">
+  <tr>
+    <th colspan="8" class="text-center">
+      <a routerLink="../addpro">Add Product</a>
+    </th>
+  </tr>
+  <tr>
+    <th>S.no</th>
+    <th>Cname</th>
+    <th>Pname</th>
+    <th>Price</th>
+    <th>Discount</th>
+    <th>Features</th>
+    <th>Image</th>
+    <th>Action</th>
+  </tr>
+
+ 
+    <tr *ngFor="let p of proData; let i=index">
+      <th>{{i+1}}</th>
+      <th>{{p.cname|titlecase}}</th>
+      <th>{{p.pname|titlecase}}</th>
+      <th>{{p.price}}</th>
+      <th>{{p.discount}}</th>
+      <th>{{p.features}}</th>
+      <th><img src="http://localhost:4567/images/{{p.image}}" width=100 height=60/></th>
+      
+      <th>
+         
+        <a routerLink="../editpro/{{p._id}}">Edit</a><br/>
+         <a href="javascript:void(0)" (click)="delpro(p._id)">Delete</a>
+      </th>
+    </tr>
+
+</table>
