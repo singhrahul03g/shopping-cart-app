@@ -149,15 +149,16 @@ router.post('/api/addproduct',function(req,res)
         let pname=req.body.pname;
         let price=req.body.price;
         let discount=req.body.discount;
+        let sPrice = (price - (price*discount)/100);
         let features=req.body.features;
         let fname=req.file.filename;
-        let ins = new proModel({'cname':cname,'pname':pname,'price':price,'discount':discount,'features':features,'image':fname})
+        let ins = new proModel({'cname':cname,'pname':pname,'price':price,'discount':discount, 'sPrice':sPrice,  'features':features,'image':fname})
         ins.save(function(err)
         {
             if(err){}
             else
             {
-                res.json({'err':0,'msg':'Product Saved'})
+                res.json({'err':0,'msg':`product saved ${sPrice}`})
             }
         })
       }

@@ -11,6 +11,7 @@
       <input type="text" class="form-control" formControlName="email">
       <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched" class="alert alert-danger">
         <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+      <div *ngIf="loginForm.controls.email.errors.email">Enter Valid Email</div>
       </div>
     </div>
     <div class="form-group">
@@ -18,6 +19,7 @@
       <input type="password" class="form-control" formControlName="password">
       <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" class="alert alert-danger">
         <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+      <div *ngIf="loginForm.controls.password.errors.minLength">Enter min 6 Characters</div>
       </div>
     </div>
     

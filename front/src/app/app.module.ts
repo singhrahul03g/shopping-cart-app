@@ -11,9 +11,11 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { ProdetailsComponent } from './pages/prodetails/prodetails.component';
 import { LoginComponent } from './pages/login/login.component';
-
+import {FormsModule} from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { MycartComponent } from './pages/mycart/mycart.component';
+
  
  
 let config = new AuthServiceConfig([
@@ -41,13 +43,16 @@ export function provideConfig() {
     ContactComponent,
     SidebarComponent,
     ProdetailsComponent,
-    LoginComponent
+    LoginComponent,
+    MycartComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
   providers: [
     {

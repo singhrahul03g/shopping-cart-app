@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
   loginData()
   {
     let formData=this.loginForm.getRawValue();
+    // let form1 = this.loginForm.get('email').value;
+    // console.log(formData.email)
+    // console.log(form1)
     this.lser.adminLogin(formData)
     .subscribe(res=>
       {
@@ -38,8 +41,8 @@ export class LoginComponent implements OnInit {
   {
      this.loginForm=this.fb.group(
        {
-         'email':['',Validators.required],
-         'password':['',Validators.required]
+         'email':['',[Validators.required,Validators.email]],
+         'password':['',[Validators.required,Validators.minLength(6)]]
        }
      )
   }
