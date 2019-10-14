@@ -19,7 +19,7 @@ export class MycartComponent implements OnInit {
     this.cartData = this.productService.getProductsFromCart();
     
     console.log(this.cartData);
-    console.log(this.cartData[0].sPrice);
+    // console.log(this.cartData[0].sPrice);
   }
 
   
