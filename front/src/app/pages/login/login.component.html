@@ -1,47 +1,45 @@
 <html>
     <head></head>
-    <title>Logged in via fb</title>
+    <title>Log in</title>
     <body>
-    <section id="form"><!--form-->
+    <section id="form">
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
-                <div class="login-form"><!--login form-->
+                <div class="login-form">
                     <h2>Login to your account</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
+                    <form [formGroup]="userlogin" (ngSubmit)="loginData()">
+                            <div class="form-group">
+                        <input type="text" placeholder="Email Address" formControlName="email" />
+                        <div *ngIf="userlogin.controls.email.invalid && userlogin.controls.email.touched" class="alert alert-danger">
+                                <div *ngIf="userlogin.controls.email.errors.required">Email is required</div>
+                              <div *ngIf="userlogin.controls.email.errors.email">Enter Valid Email</div>
+                              </div>
+                            </div>
+                              <div class="form-group">
+                        <input type="email" placeholder="Password" formControlName="password" />
+                        <div *ngIf="userlogin.controls.password.invalid && userlogin.controls.password.touched" class="alert alert-danger">
+                                <div *ngIf="userlogin.controls.password.errors.required">Password is required</div>
+                              <div *ngIf="userlogin.controls.password.errors.minLength">Enter min 6 Characters</div>
+                              </div>
+                            </div>
                         <span>
                             <input type="checkbox" class="checkbox"> 
                             Keep me signed in
                         </span>
-                        <button type="submit" class="btn btn-default">Login</button>
+                        <div class="container row">
+                                <button type="submit" class="btn btn-default" [disabled]="userlogin.invalid"  >Login</button>
+                                <button class="btn btn-default" (click)= "register()" >Register</button>
+                        </div>
+                        
                     </form>
-                </div><!--/login form-->
+                </div>
             </div>
-            <div class="col-sm-1">
-                <h2 class="or">OR</h2>
             </div>
-            <div class="col-sm-4">
-                <div class="signup-form"><!--sign up form-->
-                    <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name"/>
-                        <input type="email" placeholder="Email Address"/>
-                        <input type="password" placeholder="Password"/>
-                        <button type="submit" class="btn btn-default">Signup</button>
-                    </form>
-                </div><!--/sign up form-->
-            </div>
-        </div>
     </div>
-    <div>
-        <h3>Or Login With:</h3>
-        <img src="assets/images/gmail.png" width="200" height="80" (click)="signInWithGoogle()"/>
-        <img src="assets/images/fb.png"  width="200" height="130"  (click)=signInWithFB()/>
-    </div>
+    
 
-</section><!--/form-->
+</section>
    
 </body>
 </html>

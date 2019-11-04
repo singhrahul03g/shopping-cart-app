@@ -6,9 +6,12 @@ const mongoose=require('mongoose');
 mongoose.connect("mongodb://localhost/shopping_cart",{ useNewUrlParser: true,useCreateIndex:true});
 const bodyParser=require('body-parser');
 let adminRoute=require('./routes/admin');
+let frontRoute=require('./routes/front');
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/',adminRoute);
+app.use('/',frontRoute);
 app.use('/images',express.static('attach'));
 //define api
 app.listen(4567,function()

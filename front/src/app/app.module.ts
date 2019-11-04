@@ -11,10 +11,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { ProdetailsComponent } from './pages/prodetails/prodetails.component';
 import { LoginComponent } from './pages/login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { MycartComponent } from './pages/mycart/mycart.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { UserAccountComponent } from './pages/user-account/user-account.component';
 
  
  
@@ -44,7 +46,9 @@ export function provideConfig() {
     SidebarComponent,
     ProdetailsComponent,
     LoginComponent,
-    MycartComponent
+    MycartComponent,
+    RegisterComponent,
+    UserAccountComponent
     
   ],
   imports: [
@@ -52,7 +56,8 @@ export function provideConfig() {
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

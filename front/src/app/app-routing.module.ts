@@ -6,6 +6,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProdetailsComponent} from './pages/prodetails/prodetails.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { UserAccountComponent } from './pages/user-account/user-account.component';
 
 const routes: Routes = [
   {path:'',component:MainComponent},
@@ -13,7 +15,10 @@ const routes: Routes = [
   {path:'productdetails/:pid',component:ProdetailsComponent},
   {path:'contact-us',component:ContactComponent},
   {path:'login',component:LoginComponent},
-  {path:'myCart',component:MycartComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'myCart',component:MycartComponent},
+  {path:'my-account',component:UserAccountComponent}
+
 ];
 
 @NgModule({

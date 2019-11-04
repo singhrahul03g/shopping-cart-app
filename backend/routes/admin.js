@@ -50,7 +50,7 @@ router.post('/api/loginadmin',function(req,res)
     // ins.save(function(err)
     // {
     //     if(err){
-    //         res.json({'err':1,'msg':'Some occur'})
+    //         res.json({'err':1,'msg':'Some error'})
     //     }
     //     else
     //     {

@@ -1,31 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; 
 import { LoginService } from 'src/app/services/login.service';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
-  constructor(private authService: AuthService,private fb:FormBuilder,private router:Router,private lser: LoginService) { }
+  constructor(private fb:FormBuilder,private router:Router,private lser: LoginService) { }
 
-  // signInWithGoogle(): void {
-  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  //   // alert('hello');
-  // }
-  // signInWithFB(): void {
-  //   this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  // } 
-
-  userlogin:FormGroup
+  userregister:FormGroup
   resData;
   errMsg;
-
   ngOnInit() {
     // this.authService.authState.subscribe((user) => 
     // {
@@ -35,24 +25,20 @@ export class LoginComponent implements OnInit {
     this.validate()
   }
 
-  register(){
-    this.router.navigate(['/register'])
-  }
-
-  loginData()
+  regData()
   {
-    let formData=this.userlogin.getRawValue();
+    let formData=this.userregister.getRawValue();
     // let form1 = this.loginForm.get('email').value;
     // console.log(formData.email)
     // console.log(form1)
     // console.log(formData)
-    this.lser.userLogin(formData)
+    this.lser.userReg(formData)
     .subscribe(res=>
       {
         this.resData=res;
         if(this.resData.err==0)
         {
-          localStorage.setItem('userid',this.resData.uid);
+          localStorage.setItem('sid',this.resData);
           this.router.navigate(['/myCart']);
           console.log(this.resData);
         }
@@ -64,11 +50,12 @@ export class LoginComponent implements OnInit {
   }
 
   validate(){
-    this.userlogin=this.fb.group(
+    this.userregister=this.fb.group(
       {
         'email':['',[Validators.required,Validators.email]],
         'password':['',[Validators.required,Validators.minLength(6)]]
       }
     )
   }
+
 }
